@@ -5,10 +5,12 @@ defmodule BankApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+
   scope "/api", BankApiWeb do
     pipe_through :api
 
     post "/signup", UserController, :signup
+    get "/list", UserController, :index
   end
 
   if Mix.env() in [:dev, :test] do
