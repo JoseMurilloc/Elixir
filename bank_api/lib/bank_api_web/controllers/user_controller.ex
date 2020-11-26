@@ -2,7 +2,8 @@ defmodule BankApiWeb.UserController do
   use BankApiWeb, :controller
 
   def index(conn, params) do
-    json(conn, params)
+    conn
+    |> json(params)
   end
 
   def signup(conn, %{"user" => user }) do
