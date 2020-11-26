@@ -19,3 +19,5 @@ defmodule MyApp.B do
     funcao() + funcao2() # 4
   end
 end
+
+IO.inspect MyApp.B.funcao3()

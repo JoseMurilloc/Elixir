@@ -21,4 +21,4 @@ end
 
 r = MyApp.B.funcao3()
 
-IO.puts r
+IO.inspect r

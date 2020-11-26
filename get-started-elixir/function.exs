@@ -2,7 +2,7 @@
 
 defmodule Modulo do
   def minha_funcao_publica() do
-    IO.puts 1 + minha_funcao_privada()
+    IO.puts "O valor  #{1 + minha_funcao_privada()}"
   end
 
   defp minha_funcao_privada() do
@@ -21,4 +21,4 @@ funcao = (fn x -> x * 30 end)
 
 funcao2 = (fn func -> func.(10) end)
 
-IO.puts funcao2.(funcao)
+IO.inspect funcao2.(funcao)

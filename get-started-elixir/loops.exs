@@ -17,19 +17,16 @@ end)
 IO.puts valor_total
 
 
-# Dentro desse maravilhoso módulo, podemos realizar inúmeras operações tanto com listas, 
-# tanto com estruturas (Structs).  Um exemplo legal é quando você precisa iterar dentro 
+# Dentro desse maravilhoso módulo, podemos realizar inúmeras operações tanto com listas,
+# tanto com estruturas (Structs).  Um exemplo legal é quando você precisa iterar dentro
 # de uma struct para alterar as chaves de String para Átomo:
 
 
 estrutura = %{"id" => 123, "nome" => "aleDsz"}
 
-estrutura |> Enum.map(fn { chave, valor } -> 
-  {String.to_atom(chave), valor}
-end) |> Enum.into(%{})
-
-estrutura |> Enum.map(fn { chave, valor } -> 
+IO.inspect estrutura |> Enum.map(fn { chave, valor } ->
   {String.to_atom(chave), valor}
 end) |> Enum.into(%{})
 
 
+IO.inspect estrutura

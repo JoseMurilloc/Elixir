@@ -7,4 +7,4 @@ lasName = "Murillo"
 IO.puts "Hello, my name is Murillo with #{idade}"
 completeName = firsName <> lasName
 
-IO.puts completeName
+IO.puts "My name complete is #{completeName}"

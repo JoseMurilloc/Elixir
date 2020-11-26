@@ -1,8 +1,10 @@
 # Percorrer o array e multiplicar por 2 cada um da posição
-Enum.map([1, 2, 3], fn x -> x * 2 end)
+listMultTwo = Enum.map([1, 2, 3], fn x -> x * 2 end)
 
 # Somando as posições
-Enum.sum([1,2,3])
+IO.inspect Enum.sum([1,2,3])
+
+IO.inspect listMultTwo
 
 
 # Função anômina
