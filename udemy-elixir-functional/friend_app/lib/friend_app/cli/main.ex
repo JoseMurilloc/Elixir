@@ -14,7 +14,7 @@ defmodule FriendApp.CLI.Main do
     Shell.info("============== FRIEND APP ==============")
   end
 
-  defp start_menu_choices, do: FriendApp.CLI.MenuChoices.start()
+  defp start_menu_choices, do: FriendApp.CLI.Menu.Choices.start()
 
 
 end
