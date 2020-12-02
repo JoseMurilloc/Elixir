@@ -19,6 +19,4 @@ defmodule MyApp.B do
   end
 end
 
-r = MyApp.B.funcao3()
-
-IO.inspect r
+IO.inspect MyApp.B.funcao3()
