@@ -1,7 +1,7 @@
 defmodule FriendApp.DB.CSV do
   alias Mix.Shell.IO, as: Shell
   alias FriendApp.CLI.Menu
-  alias FriendApp.CLI.Friend
+  # alias FriendApp.CLI.Friend
   alias NimbleCSV.RFC4180, as: CSVParser
 
   def perform(choice_menu_item) do
