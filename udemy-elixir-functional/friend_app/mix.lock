@@ -1,3 +1,4 @@
 %{
+  "faker": {:hex, :faker, "0.16.0", "1e2cf3e8d60d44a30741fb98118fcac18b2020379c7e00d18f1a005841b2f647", [:mix], [], "hexpm", "fbcb9bf1299dff3c9dd7e50f41802bbc472ffbb84e7656394c8aa913ec315141"},
   "nimble_csv": {:hex, :nimble_csv, "1.1.0", "b1dba4a86be9e03065c9de829050468e591f569100332db949e7ce71be0afc25", [:mix], [], "hexpm", "e986755bc302832cac429be6deda0fc9d82d3c82b47abefb68b3c17c9d949a3f"},
 }
