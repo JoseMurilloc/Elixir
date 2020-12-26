@@ -7,12 +7,21 @@ defmodule FriendApp.DB.CSV do
   def perform(choice_menu_item) do
     case choice_menu_item do
       %Menu{ label: _, id: :created} -> create()
-      %Menu{ label: _, id: :read} -> Shell.info ">>> Read <<<"
+      %Menu{ label: _, id: :read} -> read()
       %Menu{ label: _, id: :update} -> Shell.info ">>> Update <<<"
       %Menu{ label: _, id: :delete} -> Shell.info ">>> Delete <<<"
     end
 
     FriendApp.CLI.Menu.Choices.start()
+  end
+
+  defp read do
+    File.read!("#{File.cwd!}/friends.csv")
+    |> CSVParser.parse_string(headers: false)
+    |> Enum.map(fn [email, name, phone] ->
+      %{name: name, email: email, phone: phone}
+    end)
+    |> Scribe.console(data: [{"Nome", :name}, {"Email", :email}, {"Telefone", :phone}])
   end
 
   defp create() do
