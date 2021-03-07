@@ -43,7 +43,7 @@ const Register: React.FC = () => {
         setPasswordConfirmation('')
       }
     },
-    [password, email]
+    [password, email, passwordConfirmation]
   )
 
   return (
@@ -78,7 +78,7 @@ const Register: React.FC = () => {
 
             <input
               type="password"
-              name="passwordConfirmation"
+              name="password_confirmation"
               placeholder="Password Confirmation"
               value={passwordConfirmation}
               onChange={e => setPasswordConfirmation(e.target.value)}
