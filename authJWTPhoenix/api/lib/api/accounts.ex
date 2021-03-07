@@ -3,10 +3,45 @@ defmodule Api.Accounts do
   The Accounts context.
   """
 
+  alias Api.Guardian
+
   import Ecto.Query, warn: false
   alias Api.Repo
 
   alias Api.Accounts.User
+
+  def token_sign_in(email, password) do
+    case email_password_auth(email, password) do
+      {:ok, user} ->
+        Guardian.encode_and_sign(user)
+      _ ->
+        {:error, :unauthorized}
+    end
+  end
+
+  def get_by_email(email) when is_binary(email) do
+    case Repo.get_by(User, email: email) do
+      nil ->
+        Bcrypt.no_user_verify()
+        {:error, "Login error"}
+      user ->
+        {:ok, user}
+    end
+  end
+
+  defp verify_password(password, %User{} = user) do
+    if Bcrypt.verify_pass(password, user.password_hash) do
+      {:ok, user}
+    else
+      {:error, :invalid_password}
+    end
+  end
+
+  defp email_password_auth(email, password) when is_binary(email) and is_binary(password) do
+    with {:ok, user} <- get_by_email(email) do
+      verify_password(password, user)
+    end
+  end
 
   @doc """
   Returns the list of users.

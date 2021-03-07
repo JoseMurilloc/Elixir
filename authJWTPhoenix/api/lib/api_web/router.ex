@@ -8,7 +8,13 @@ defmodule ApiWeb.Router do
   scope "/api/v1", ApiWeb do
     pipe_through :api
     # resources "/users", UserController,  only: [:create, :show, :index]
+
+    get "/users", UserController, :index
+    get "/users/:id", UserController, :show
+
     post "/sign_up", UserController, :create
+    post "/sign_in", UserController, :sign_in
+
   end
 
   if Mix.env() in [:dev, :test] do
