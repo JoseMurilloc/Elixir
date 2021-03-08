@@ -34,7 +34,9 @@ const Register: React.FC = () => {
 
         success()
 
-        router.push('/')
+        setTimeout(() => {
+          router.push('/')
+        }, 2000)
       } catch (err) {
         error()
       } finally {

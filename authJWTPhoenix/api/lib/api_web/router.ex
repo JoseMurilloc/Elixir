@@ -12,6 +12,7 @@ defmodule ApiWeb.Router do
 
     get "/users", UserController, :index
     get "/users/:id", UserController, :show
+    delete "/users/:id", UserController, :delete
 
     post "/sign_up", UserController, :create
     post "/sign_in", UserController, :sign_in
