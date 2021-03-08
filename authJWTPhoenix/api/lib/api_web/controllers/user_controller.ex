@@ -29,6 +29,16 @@ defmodule ApiWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
+
+    case Accounts.get_user!(id) do
+      {:ok, user} ->
+        render(conn, "show.json", user: user)
+      {:error, :not_found} ->
+        conn
+        |> put_status(:bad_request)
+        |> json(%{message: "User not found to this id"})
+    end
+
     user = Accounts.get_user!(id)
     render(conn, "show.json", user: user)
   end

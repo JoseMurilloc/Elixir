@@ -70,7 +70,13 @@ defmodule Api.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id) do
+    Repo.get(User, id)
+    |> handle_get_user()
+  end
+
+  defp handle_get_user(nil), do: {:error, :not_found}
+  defp handle_get_user(user), do: {:ok, user}
 
   @doc """
   Creates a user.
@@ -123,6 +129,7 @@ defmodule Api.Accounts do
   def delete_user(%User{} = user) do
     Repo.delete(user)
   end
+
 
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking user changes.
