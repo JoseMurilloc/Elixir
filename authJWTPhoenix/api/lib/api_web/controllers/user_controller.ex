@@ -52,7 +52,7 @@ defmodule ApiWeb.UserController do
   end
 
   def delete(conn, %{"id" => id}) do
-    user = Accounts.get_user!(id)
+    {:ok, user} = Accounts.get_user!(id)
 
     with {:ok, %User{}} <- Accounts.delete_user(user) do
       send_resp(conn, :no_content, "")
