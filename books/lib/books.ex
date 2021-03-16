@@ -3,6 +3,8 @@ defmodule Books do
   Documentation for `Books`.
   """
 
+  @url "https://elixir-lang.org/learning.html"
+
   def start do
     get_book()
     |> break_content()
@@ -11,7 +13,7 @@ defmodule Books do
   defp get_book do
     IO.puts "Livros Elixirs"
 
-    case HTTPoison.get("https://elixir-lang.org/learning.html") do
+    case HTTPoison.get(@url) do
       {:ok, %HTTPoison.Response{body: body}} ->
         content = body
         |> Floki.find("a.cover")
