@@ -1,10 +1,8 @@
 defmodule Wabanex.Schemas.User do
-  alias Ecto.Changeset
   use Ecto.Schema
   import Ecto.Changeset
 
   @fields [:email, :password, :name]
-
   @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "users" do
